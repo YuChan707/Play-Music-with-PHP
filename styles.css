@@ -12,7 +12,12 @@ table {
     padding: 15px;
     text-align: center;
   }
-  
+  h1{
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-top: 20px;
+  }
   th {
     background-color: #e0e0e0;
     font-size: 18px;

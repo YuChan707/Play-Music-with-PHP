@@ -2,28 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="5; url=hw8.php">
-  <title>Sounds of the USA</title>
+  <title>Sounds of the USA - Select Song</title>
   <style>
     body {
-      background-color: black;
-      color: white;
-      text-align: center;
-      padding-top: 100px;
       font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    .song-container {
+      margin: 30px auto;
     }
     img {
-      max-width: 90%;
+      max-width: 300px;
       height: auto;
     }
-    h1 {
-      font-size: 2em;
-      margin-top: 20px;
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #showoutput {
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <img src="american_music.jpg" alt="American Music">
-  <h1>Sounds of the USA - Splash Screen</h1>
+  <h1>Sounds of the USA</h1>
+
+  <div class="song-container">
+    <img src="howling_wolf.jpg" alt="Howling Wolf">
+    <div>
+      <button onclick="playMusic('howling_wolf.mp3')">Play Smokestack Lightning</button>
+    </div>
+  </div>
+
+  <div class="song-container">
+    <img src="woody_guthrie.jpg" alt="Woody Guthrie">
+    <div>
+      <button onclick="playMusic('woody_guthrie.mp3')">Play This Land is Your Land</button>
+    </div>
+  </div>
+
+  <div id="showoutput"></div>
+
+  <script type="text/javascript">
+    let currentAudio = null;
+
+    function playMusic(filename) {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      const audio = new Audio("hw8.php?file=" + filename);
+      currentAudio = audio;
+      currentAudio.play();
+    }
+
+    function restMusic() {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      document.getElementById("showoutput").innerHTML = "";
+    }
+  </script>
 </body>
 </html>
